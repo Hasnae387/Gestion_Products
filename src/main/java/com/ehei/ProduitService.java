@@ -42,5 +42,22 @@ public class ProduitService {
 	}
 
 	
-	
+
+public void updateProduit(Produit updatedpro) {
+    for (Produit existingProduit : produitsList) {
+        if (existingProduit.getId() == updatedpro.getId()) {
+            if (DonneesValides(updatedpro)) {
+                existingProduit.setNom(updatedpro.getNom());
+                existingProduit.setPrix(updatedpro.getPrix());
+                existingProduit.setQuantite(updatedpro.getQuantite());
+                return;  
+            } else {
+                throw new IllegalArgumentException("Le prix et la quantité doivent être positifs.");
+            }
+        }
+    }
+
+    
+    throw new IllegalArgumentException("Le produit n'existe pas: " + updatedpro.getId());
+}
 }
