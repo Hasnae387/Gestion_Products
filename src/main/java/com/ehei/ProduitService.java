@@ -8,7 +8,7 @@ public class ProduitService {
 	private List<Produit> produitsList = new ArrayList<>();
 	public boolean UnicitéProduit(Long id,String nom) {
 		   for (Produit p : produitsList) {
-		        if (p.getId().equals(id) || p.getNom().equals(nom)) {
+		        if (p.getId() == id || p.getNom().equals(nom)) {
 		            return true;
 		        }
 		    }
