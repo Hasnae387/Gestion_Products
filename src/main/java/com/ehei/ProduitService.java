@@ -60,4 +60,23 @@ public void updateProduit(Produit updatedpro) {
     
     throw new IllegalArgumentException("Le produit n'existe pas: " + updatedpro.getId());
 }
+
+public void deleteProduit(long id) {
+    Produit produitSupprimer = null;
+
+
+    for (Produit produit : produitsList) {
+        if (produit.getId() == id) {
+            produitSupprimer = produit;
+            break;
+        }
+    }
+
+    if (produitSupprimer != null) {
+    	produitsList.remove(produitSupprimer);
+    } else {
+       
+        throw new IllegalArgumentException("Le produit à supprimer n'existe pas.");
+    }
+}
 }
