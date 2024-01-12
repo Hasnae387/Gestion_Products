@@ -31,5 +31,16 @@ public class ProduitService {
 	}
 		
 	
+	public Produit readProduit(long id) {
+	    for (Produit produit : produitsList) {
+	        if (produit.getId() == id) {
+	            return produit;
+	        }
+	    }
+
+	    throw new IllegalArgumentException("Le produit avec l'ID spécifié n'a pas été trouvé.");
+	}
+
+	
 	
 }
